@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t marcuspaget/demopipeline -f Dockerfile.dev .
+
+script:
+    - docker run marcuspaget/demopipeline npm run test -- --coverage
